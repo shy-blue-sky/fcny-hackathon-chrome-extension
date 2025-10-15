@@ -26,7 +26,7 @@ function taskInputPopup() { // Maybe could be done via DOM manipulation
     }
 
     else {
-    console.log("Hi! Please add the time you'd like to be reminded by! The format should be HH:MM.");
+    console.log("Hi! Please let us know when you'd like to be reminded by! The format should be HH:MM."); // Set timer
     if (userTaskTime ) // if input time has already passed that day {
     console.log("Sorry, seems like it's already past that time today!")
 
