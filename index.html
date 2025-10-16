@@ -3,35 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Documen</title>
     <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
-    <div id="helper" >
-        <div class="headerHelper"> 
-            <div class="helperAvatar">Emjoi...</div>
+
+    <!--what pops up-->
+    <div id="helper" hidden>
+        <div class="helperHeader"> 
+            <div class="helperAvatar characs">Emjoi...</div>
             <div class="helperTitle">Mini helper</div >
             <button id="taskSetter" class="menuButtons"></button>
             <button id="timerSetter" class="menuButtons"></button>
-            <button id="closeButton"></button>
+            <button id="closeButton" class="icon-btn" title="Hide this reminder">✖</button>
         </div>   
 
 
+        <!--For all default convos (Task reminding, motivational quotes etc)-->
         <div id="helperMessage" class="helperText">
                 <!--reminder messsages goes here-->
+            <p id="charaMessage"></p>
         </div>
             
 
         <div class="helperActions">
                 <button id="nextMsg">Next</button>
+                <button id="markDone">Done</button>
         </div>
 
 
         <!--Mood check-->
         <div class="helperSection">
           <div class="sectionTitle">Mood Check-in</div>
-            <div>
-                <button class="mood"></button>
+            <div class="moodRow">
+                <button class="mood" data-mood="🙂">🙂</button>
+
             </div>
         </div>
 
@@ -39,31 +45,60 @@
         <!--Quick focuse prompt-->
         <div class="helperSection">
             <div class="sectionTitle">Focus</div>
-            <label class="qf" for="focusInput">What are you trying to do?</label>
-            <input id="focusInput" type="text" placeholder="what are you trying to do?"> />
+            <label class="empty" for="focusInput">What are you trying to do?</label>
+            <input id="focusInput" type="text" placeholder="what are you trying to do?"/>
             <button id="saveFocus" class="btn">Save </button>
+            <p id="prompt"></p>
         </div>
     </div>
 
     <!--Setting & tasks panel-->
-    <div id="tray">
+    <div id="tray" hidden>
         <div class="trayHeader">
             <div class="sectionTitle">Settings & Tasks</div>
-            <button></button>
+            <button id="closeTray" class="icon-btn" title="close settings">✖</button>
         </div>
 
+        <div class="traySection">
+            <div class="Section-title">Reminder Schedule</div>
+            <div class="grid">
+                <label>
+                 Every
+                 <input id="intervalMinutes" type="number" min="1" value="60"/>
+                 Minutes
+                </label>
+                <label>
+                 <input id="enableSound" type="checkbox" />
+                 Play a sound
+                </label>
+            </div>
+            <button id="applySchedule" class="btn btn-primary">Apply</button>
+            <p class="hint">Tip: Use smaller numbers while testing (e.g., 1-3minutes).</p>
+        </div>
 
+        <div class="traySection">
+            <div class="sectionTitle">Tasks Reminders (with links)</div>
+            <div class="grid">
+                <input id="taskTitle" placeholder="Task name (e.g., CSX prep)"/>
+                <input id="taskURL" placeholder="Link (optional)"/>
+                <input id="taskMinutes" type="number" min="1" value="30"/>
+                <span>minutes</span>
+                <button id="addTask" class="btn">Add</button>
+            </div>
+            <ul id="taskList" class="task-list"></ul>
+        </div>
+    </div>
 
-
-
+    <!--One button to open the settings and show helper-->
+    <div id="dock">
+        <button id="toggleTray" class="btn btn-primary">Mini Helper</button>
+        <button id="showHelper" class="btn btn-secondary">Ping me now</button>
     </div>
 
 
+    <script src="main.js"></script>
 
 
 
-
-
-    
 </body>
 </html>
