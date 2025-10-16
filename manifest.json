@@ -1,17 +1,25 @@
 {
   "manifest_version": 3,
   "name": "Re: Minder", 
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Your friendly task reminder and mental health support animal",
-  "background": {
-    "service_worker": "sw.js"
+  "permissions": [
+    "scripting", 
+    "webNavigation", 
+    "storage", 
+    "notifications", 
+    "storage", 
+    "alarms"
+  ],
+  "action": {
+    "default_popup": "index.html"
   },
-  "permissions": ["scripting", "webNavigation", "storage"],
   "host_permissions": ["<all_urls>"],
   "content_scripts": [  
   {
     "matches": ["<all_urls>"],
-    "js": ["main.js"]
+    "js": ["main.js"],
+    "css": ["bulma.min.css"]
   }
 ]
 }
